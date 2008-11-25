@@ -5,7 +5,7 @@ Release: 	%mkrel 1
 Source0: 	http://downloads.sourceforge.net/skrooge/%name-%version.tar.gz
 License: 	GPLv2+
 Group: 		Office
-Url: 		http://www.kde.org
+Url: 		http://skrooge.sourceforge.net/
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: 	kdelibs4-devel
 BuildRequires:	sqlite3-devel
