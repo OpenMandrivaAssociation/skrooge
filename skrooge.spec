@@ -52,7 +52,7 @@ chmod a+x po/*.sh
 rm -rf %{buildroot}
 %{makeinstall_std} -C build
 
-rm -f %buidlroot%_datadir/applications/kde/*.desktop
+rm -f %buildroot%_datadir/applications/kde/*.desktop
 
 %find_lang %name --with-html
 
