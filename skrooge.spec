@@ -1,6 +1,6 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version: 	0.1.7
+Version: 	0.1.8
 Release: 	%mkrel 1
 Source0: 	http://downloads.sourceforge.net/skrooge/%name-%version.tar.gz
 License: 	GPLv2+
