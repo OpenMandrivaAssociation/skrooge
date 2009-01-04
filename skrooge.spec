@@ -31,10 +31,10 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_kde_libdir}/kde4/*.so
 %{_kde_plugindir}/designer/*.so
 %{_kde_datadir}/applications/kde4/*.desktop
+%{_kde_datadir}/mime/packages/*.desktop
 %{_kde_datadir}/config.kcfg/*.kcfg
 %{_kde_services}/*.desktop
 %{_kde_servicetypes}/*.desktop
-%{_kde_datadir}/mimelnk/application/skg.desktop
 %{_kde_appsdir}/*
 %{_kde_iconsdir}/*/*/*/*
 
