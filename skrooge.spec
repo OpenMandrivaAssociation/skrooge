@@ -1,7 +1,7 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
 Version: 	0.2.0
-Release: 	%mkrel 1
+Release: 	%mkrel 2
 Source0: 	http://downloads.sourceforge.net/skrooge/%name-%version.tar.gz
 License: 	GPLv2+
 Group: 		Office
@@ -10,6 +10,7 @@ BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: 	kdelibs4-devel
 BuildRequires:	kdesdk4-scripts
 BuildRequires:	sqlite3-devel
+Requires:	qt4-database-plugin-sqlite
 
 %description
 Skrooge is a personal finance management tool for KDE4, with the aim of
