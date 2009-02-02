@@ -8,6 +8,7 @@ Group: 		Office
 Url: 		http://skrooge.sourceforge.net/
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: 	kdelibs4-devel
+BuildRequires:	qca2-devel
 BuildRequires:	kdesdk4-scripts
 BuildRequires:	sqlite3-devel
 Requires:	qt4-database-plugin-sqlite
