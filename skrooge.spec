@@ -1,6 +1,6 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version: 	0.2.2
+Version: 	0.2.3
 Release: 	%mkrel 1
 Source0: 	http://downloads.sourceforge.net/skrooge/%name-%version.tar.gz
 License: 	GPLv2+
@@ -29,15 +29,49 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %files -f %name.lang
 %defattr(-,root,root)
 %{_kde_bindir}/*
-%{_kde_libdir}/*.so
 %{_kde_libdir}/kde4/*.so
-%{_kde_plugindir}/designer/*.so
 %{_kde_datadir}/applications/kde4/*.desktop
 %{_kde_datadir}/config.kcfg/*.kcfg
 %{_kde_services}/*.desktop
 %{_kde_servicetypes}/*.desktop
 %{_kde_appsdir}/*
 %{_kde_iconsdir}/*/*/*/*
+
+#-------------------------------------------------------------------
+
+%define major 1
+%define libname %mklibname skrooge %major
+
+%package -n %libname
+Summary: skrooge library
+Group: System/Libraries
+
+%description -n %libname
+Skrooge library.
+
+%files -n %libname
+%defattr(-,root,root)
+%{_kde_libdir}/*.so.%{major}
+%{_kde_libdir}/*.so.%{version}
+%{_kde_plugindir}/designer/*.so.%{major}
+%{_kde_plugindir}/designer/*.so.%{version}
+
+#-------------------------------------------------------------------
+
+%package devel
+Summary: skrooge development files
+Group: Development/KDE and Qt
+Requires: %{libname} = %{version}-%{release}
+Conflicts: %{name} < 0.2.3
+
+%description devel
+This package contains header files needed if you wish to build applications
+based on skrooge.
+
+%files devel
+%defattr(-,root,root)
+%{_kde_libdir}/*.so
+%{_kde_plugindir}/designer/*.so
 
 #--------------------------------------------------------------------
 
