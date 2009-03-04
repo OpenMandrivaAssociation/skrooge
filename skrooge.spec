@@ -11,6 +11,7 @@ BuildRequires: 	kdelibs4-devel
 BuildRequires:	qca2-devel
 BuildRequires:	kdesdk4-scripts
 BuildRequires:	sqlite3-devel
+BuildRequires:	libofx-devel
 Requires:	qt4-database-plugin-sqlite
 
 %description
