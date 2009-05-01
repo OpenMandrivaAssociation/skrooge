@@ -1,6 +1,6 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version: 	0.2.5
+Version: 	0.2.7
 Release: 	%mkrel 1
 Source0: 	http://downloads.sourceforge.net/skrooge/%name-%version.tar.gz
 License: 	GPLv2+
@@ -32,6 +32,7 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_kde_bindir}/*
 %{_kde_libdir}/kde4/*.so
 %{_kde_datadir}/applications/kde4/*.desktop
+%{_datadir}/mime/packages/*.xml
 %{_kde_datadir}/config.kcfg/*.kcfg
 %{_kde_services}/*.desktop
 %{_kde_servicetypes}/*.desktop
