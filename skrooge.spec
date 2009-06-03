@@ -3,6 +3,7 @@ Name:		skrooge
 Version: 	0.2.9
 Release: 	%mkrel 1
 Source0: 	http://downloads.sourceforge.net/skrooge/%name-%version.tar.gz
+Patch0:		skrooge-0.2.9-fix-install.patch
 License: 	GPLv2+
 Group: 		Office
 Url: 		http://skrooge.sourceforge.net/
@@ -78,7 +79,8 @@ based on skrooge.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %name-%version
+%setup -q -n %name
+%patch0 -p0
 
 %build
 %cmake_kde4
