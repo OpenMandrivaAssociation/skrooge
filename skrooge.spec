@@ -1,32 +1,23 @@
-Summary:	Personal Finance Management Tool
-Name:		skrooge
-Version: 	0.2.9
-Release: 	%mkrel 1
-Source0: 	http://downloads.sourceforge.net/skrooge/%name-%version.tar.gz
-Patch0:		skrooge-0.2.9-fix-install.patch
-License: 	GPLv2+
-Group: 		Office
-Url: 		http://skrooge.sourceforge.net/
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: 	kdelibs4-devel
-BuildRequires:	qca2-devel
-BuildRequires:	kdesdk4-scripts
-BuildRequires:	sqlite3-devel
-BuildRequires:	libofx-devel
-Requires:	qt4-database-plugin-sqlite
+Name: skrooge
+Version: 0.5.0
+Release: %mkrel 1
+Summary: Personal Finance Management Tool
+Source0: %name-%version.tar.gz
+License: GPLv2+
+Group: Office
+Url: http://skrooge.sourceforge.net/
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires: kdelibs4-devel
+BuildRequires: qca2-devel
+BuildRequires: kdesdk4-scripts
+BuildRequires: sqlite3-devel
+BuildRequires: libofx-devel
+Requires: qt4-database-plugin-sqlite
 
 %description
 Skrooge is a personal finance management tool for KDE4, with the aim of
 being highly intuitive, while providing powerful functions such as
 graphics, persistent Undo/Redo, infinite category levels, and much more...
-
-%if %mdkversion < 200900
-%post
-%update_menus
-
-%postun
-%update_menus
-%endif
 
 %files -f %name.lang
 %defattr(-,root,root)
@@ -79,8 +70,7 @@ based on skrooge.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %name
-%patch0 -p0
+%setup -q
 
 %build
 %cmake_kde4
@@ -90,8 +80,6 @@ based on skrooge.
 rm -rf %{buildroot}
 %{makeinstall_std} -C build
 
-rm -f %buildroot%_kde_datadir/applications/kde/*.desktop
-rm -f %buildroot%_kde_datadir/mimelnk/application/*.desktop
 
 %find_lang %name --with-html
 
