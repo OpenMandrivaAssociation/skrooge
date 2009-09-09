@@ -1,6 +1,6 @@
 Name: skrooge
 Version: 0.5.0
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: Personal Finance Management Tool
 Source0: %name-%version.tar.gz
 Patch0: skrooge-0.5.0-fix-doc-installation.patch
