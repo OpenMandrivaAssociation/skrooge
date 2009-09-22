@@ -1,12 +1,12 @@
 Name: skrooge
-Version: 0.5.0
-Release: %mkrel 2
+Version: 0.5.1
+Release: %mkrel 1
 Summary: Personal Finance Management Tool
 Source0: %name-%version.tar.gz
 Patch0: skrooge-0.5.0-fix-doc-installation.patch
 License: GPLv2+
 Group: Office
-Url: http://skrooge.sourceforge.net/
+Url: http://extragear.kde.org/apps/skrooge/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: kdelibs4-devel
 BuildRequires: qca2-devel
