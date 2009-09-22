@@ -31,7 +31,6 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_kde_servicetypes}/*.desktop
 %{_kde_appsdir}/*
 %{_kde_iconsdir}/*/*/*/*
-%_datadir/doc/HTML/en/doc/*
 
 #-------------------------------------------------------------------
 
