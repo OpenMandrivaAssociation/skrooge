@@ -1,6 +1,6 @@
 Name: skrooge
 Version: 0.5.2
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: Personal Finance Management Tool
 Source0: http://websvn.kde.org/*checkout*/tags/skrooge/%{version}/%{name}-%{version}.tar.gz
 Patch0: skrooge-0.5.0-fix-doc-installation.patch
@@ -14,6 +14,9 @@ BuildRequires: kdesdk4-scripts
 BuildRequires: sqlite3-devel
 BuildRequires: libofx-devel
 Requires: qt4-database-plugin-sqlite
+
+# We add this obsolete during the time we have not kmymoney2
+Obsoletes: kmymoney2 < 1.0.0-0.1013464.2
 
 %description
 Skrooge is a personal finance management tool for KDE4, with the aim of
