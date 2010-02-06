@@ -1,6 +1,6 @@
 Name: skrooge
-Version: 0.5.5
-Release: %mkrel 2
+Version: 0.6.0
+Release: %mkrel 1
 Summary: Personal Finance Management Tool
 Source0: http://websvn.kde.org/*checkout*/tags/skrooge/%{version}/%{name}-%{version}.tar.bz2
 License: GPLv2+
