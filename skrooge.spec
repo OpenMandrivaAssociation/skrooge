@@ -1,8 +1,10 @@
+%define svn 1100688
+
 Name: skrooge
-Version: 0.6.0
-Release: %mkrel 1
+Version: 0.6.1
+Release: %mkrel 0.%svn.1
 Summary: Personal Finance Management Tool
-Source0: http://websvn.kde.org/*checkout*/tags/skrooge/%{version}/%{name}-%{version}.tar.bz2
+Source0: http://websvn.kde.org/*checkout*/tags/skrooge/%{version}/%{name}-%{version}.%svn.tar.bz2
 License: GPLv2+
 Group: Office
 Url: http://extragear.kde.org/apps/skrooge/
@@ -73,7 +75,7 @@ based on skrooge.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q
+%setup -q -n %name
 
 %build
 %cmake_kde4
@@ -88,7 +90,6 @@ rm -rf %{buildroot}
 for size in 16 22 32 48 64 128; do
     mkdir -p %buildroot/%_datadir/icons/hicolor/${size}x${size}/apps
     %__cp %buildroot%_kde_iconsdir/oxygen/${size}x${size}/apps/skrooge.png %buildroot/%_datadir/icons/hicolor/${size}x${size}/apps
-    %__cp %buildroot%_kde_iconsdir/oxygen/${size}x${size}/apps/skrooge2.png %buildroot/%_datadir/icons/hicolor/${size}x${size}/apps
 done
 
 %find_lang %name --with-html
