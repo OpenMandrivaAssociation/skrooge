@@ -15,9 +15,7 @@ BuildRequires: kdesdk4-scripts
 BuildRequires: sqlite3-devel
 BuildRequires: libofx-devel
 Requires: qt4-database-plugin-sqlite
-
-# We add this obsolete during the time we have not kmymoney2
-Obsoletes: kmymoney2 < 1.0.0-0.1013464.2
+Conflicts:  %{_lib}skrooge1 < 0.6.1
 
 %description
 Skrooge is a personal finance management tool for KDE4, with the aim of
@@ -35,32 +33,85 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_kde_servicetypes}/*.desktop
 %{_kde_appsdir}/*
 %{_kde_iconsdir}/*/*/*/*
+%{_kde_plugindir}/designer/*.so.*
 
-#-------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 
-%define major 1
-%define libname %mklibname skrooge %major
+%define libskgbankgui_major 0
+%define libskgbankgui %mklibname skgbankgui %{libskgbankgui_major}
 
-%package -n %libname
-Summary: skrooge library
-Group: System/Libraries
+%package -n %libskgbankgui
+Summary:    %name library
+Group:      System/Libraries
+Conflicts:  %{_lib}skrooge1 < 0.6.1
 
-%description -n %libname
-Skrooge library.
+%description -n %libskgbankgui
+%name library.
 
-%files -n %libname
-%defattr(-,root,root)
-%{_kde_libdir}/*.so.%{major}
-%{_kde_libdir}/*.so.%{version}
-%{_kde_plugindir}/designer/*.so.%{major}
-%{_kde_plugindir}/designer/*.so.%{version}
+%files -n %libskgbankgui
+%defattr(-,root,root,-)
+%_kde_libdir/libskgbankgui.so.*
 
-#-------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+
+%define libskgbankmodeler_major 0
+%define libskgbankmodeler %mklibname skgbankmodeler %{libskgbankmodeler_major}
+
+%package -n %libskgbankmodeler
+Summary:    %name library
+Group:      System/Libraries
+Conflicts:  %{_lib}skrooge1 < 0.6.1
+
+%description -n %libskgbankmodeler
+%name library.
+
+%files -n %libskgbankmodeler
+%defattr(-,root,root,-)
+%_kde_libdir/libskgbankmodeler.so.*
+
+#-----------------------------------------------------------------------------
+
+%define libskgbasegui_major 0
+%define libskgbasegui %mklibname skgbasegui %{libskgbasegui_major}
+
+%package -n %libskgbasegui
+Summary:    %name library
+Group:      System/Libraries
+Conflicts:  %{_lib}skrooge1 < 0.6.1
+
+%description -n %libskgbasegui
+%name library.
+
+%files -n %libskgbasegui
+%defattr(-,root,root,-)
+%_kde_libdir/libskgbasegui.so.*
+
+#-----------------------------------------------------------------------------
+
+%define libskgbasemodeler_major 0
+%define libskgbasemodeler %mklibname skgbasemodeler %{libskgbasemodeler_major}
+
+%package -n %libskgbasemodeler
+Summary:    %name library
+Group:      System/Libraries
+Conflicts:  %{_lib}skrooge1 < 0.6.1
+
+%description -n %libskgbasemodeler
+%name library.
+
+%files -n %libskgbasemodeler
+%defattr(-,root,root,-)
+%_kde_libdir/libskgbasemodeler.so.*
+
+#-----------------------------------------------------------------------------
 
 %package devel
 Summary: skrooge development files
 Group: Development/KDE and Qt
-Requires: %{libname} = %{version}-%{release}
+Requires: %libskgbasemodeler = %{version}-%{release}
+Requires: %libskgbasegui = %{version}-%{release}
+Requires: %libskgbankmodeler = %{version}-%{release}
+Requires: %libskgbankgui = %{version}-%{release}
 Conflicts: %{name} < 0.2.3
 
 %description devel
