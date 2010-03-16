@@ -2,9 +2,10 @@
 
 Name: skrooge
 Version: 0.6.1
-Release: %mkrel 0.%svn.1
+Release: %mkrel 0.%svn.2
 Summary: Personal Finance Management Tool
 Source0: http://websvn.kde.org/*checkout*/tags/skrooge/%{version}/%{name}-%{version}.%svn.tar.bz2
+Patch0:  skrooge-0.6.1-fix-soname.patch 
 License: GPLv2+
 Group: Office
 Url: http://extragear.kde.org/apps/skrooge/
@@ -50,7 +51,7 @@ Conflicts:  %{_lib}skrooge1 < 0.6.1
 
 %files -n %libskgbankgui
 %defattr(-,root,root,-)
-%_kde_libdir/libskgbankgui.so.*
+%_kde_libdir/libskgbankgui.so.%{libskgbankgui_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -67,7 +68,7 @@ Conflicts:  %{_lib}skrooge1 < 0.6.1
 
 %files -n %libskgbankmodeler
 %defattr(-,root,root,-)
-%_kde_libdir/libskgbankmodeler.so.*
+%_kde_libdir/libskgbankmodeler.so.%{libskgbankmodeler_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -84,7 +85,7 @@ Conflicts:  %{_lib}skrooge1 < 0.6.1
 
 %files -n %libskgbasegui
 %defattr(-,root,root,-)
-%_kde_libdir/libskgbasegui.so.*
+%_kde_libdir/libskgbasegui.so.%{libskgbasegui_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -101,7 +102,7 @@ Conflicts:  %{_lib}skrooge1 < 0.6.1
 
 %files -n %libskgbasemodeler
 %defattr(-,root,root,-)
-%_kde_libdir/libskgbasemodeler.so.*
+%_kde_libdir/libskgbasemodeler.so.%{libskgbasegui_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -127,7 +128,7 @@ based on skrooge.
 
 %prep
 %setup -q -n %name
-
+%patch0 -p0 -b .fix_soname
 %build
 %cmake_kde4
 %make
