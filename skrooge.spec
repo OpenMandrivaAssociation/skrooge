@@ -2,7 +2,7 @@
 
 Name: skrooge
 Version: 0.6.1
-Release: %mkrel 0.%svn.2
+Release: %mkrel 0.%svn.3
 Summary: Personal Finance Management Tool
 Source0: http://websvn.kde.org/*checkout*/tags/skrooge/%{version}/%{name}-%{version}.%svn.tar.bz2
 Patch0:  skrooge-0.6.1-fix-soname.patch 
@@ -16,7 +16,7 @@ BuildRequires: kdesdk4-scripts
 BuildRequires: sqlite3-devel
 BuildRequires: libofx-devel
 Requires: qt4-database-plugin-sqlite
-Conflicts:  %{_lib}skrooge1 < 0.6.1
+Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 
 %description
 Skrooge is a personal finance management tool for KDE4, with the aim of
@@ -44,7 +44,7 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %package -n %libskgbankgui
 Summary:    %name library
 Group:      System/Libraries
-Conflicts:  %{_lib}skrooge1 < 0.6.1
+Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 
 %description -n %libskgbankgui
 %name library.
@@ -61,7 +61,7 @@ Conflicts:  %{_lib}skrooge1 < 0.6.1
 %package -n %libskgbankmodeler
 Summary:    %name library
 Group:      System/Libraries
-Conflicts:  %{_lib}skrooge1 < 0.6.1
+Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 
 %description -n %libskgbankmodeler
 %name library.
@@ -78,7 +78,7 @@ Conflicts:  %{_lib}skrooge1 < 0.6.1
 %package -n %libskgbasegui
 Summary:    %name library
 Group:      System/Libraries
-Conflicts:  %{_lib}skrooge1 < 0.6.1
+Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 
 %description -n %libskgbasegui
 %name library.
@@ -95,7 +95,7 @@ Conflicts:  %{_lib}skrooge1 < 0.6.1
 %package -n %libskgbasemodeler
 Summary:    %name library
 Group:      System/Libraries
-Conflicts:  %{_lib}skrooge1 < 0.6.1
+Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 
 %description -n %libskgbasemodeler
 %name library.
