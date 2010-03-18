@@ -15,6 +15,7 @@ BuildRequires: qca2-devel
 BuildRequires: kdesdk4-scripts
 BuildRequires: sqlite3-devel
 BuildRequires: libofx-devel
+BuildRequires:  desktop-file-utils
 Requires: qt4-database-plugin-sqlite
 Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 
@@ -143,6 +144,11 @@ for size in 16 22 32 48 64 128; do
     mkdir -p %buildroot/%_datadir/icons/hicolor/${size}x${size}/apps
     %__cp %buildroot%_kde_iconsdir/oxygen/${size}x${size}/apps/skrooge.png %buildroot/%_datadir/icons/hicolor/${size}x${size}/apps
 done
+
+%check
+for f in %{buildroot}%{_kde_datadir}/applications/kde4/*.desktop ; do
+     desktop-file-validate $f
+done 
 
 %find_lang %name --with-html
 
