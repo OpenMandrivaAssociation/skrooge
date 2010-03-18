@@ -2,7 +2,7 @@
 
 Name: skrooge
 Version: 0.6.1
-Release: %mkrel 0.%svn.3
+Release: %mkrel 0.%svn.4
 Summary: Personal Finance Management Tool
 Source0: http://websvn.kde.org/*checkout*/tags/skrooge/%{version}/%{name}-%{version}.%svn.tar.bz2
 Patch0:  skrooge-0.6.1-fix-soname.patch 
@@ -44,7 +44,7 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %package -n %libskgbankgui
 Summary:    %name library
 Group:      System/Libraries
-Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
+Obsoletes:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 
 %description -n %libskgbankgui
 %name library.
