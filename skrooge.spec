@@ -2,7 +2,7 @@
 
 Name: skrooge
 Version: 0.6.1
-Release: %mkrel 0.%svn.4
+Release: %mkrel 0.%svn.5
 Summary: Personal Finance Management Tool
 Source0: http://websvn.kde.org/*checkout*/tags/skrooge/%{version}/%{name}-%{version}.%svn.tar.bz2
 Patch0:  skrooge-0.6.1-fix-soname.patch 
@@ -35,7 +35,6 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_kde_servicetypes}/*.desktop
 %{_kde_appsdir}/*
 %{_kde_iconsdir}/*/*/*/*
-%{_kde_plugindir}/designer/*.so.*
 
 #-----------------------------------------------------------------------------
 
@@ -46,6 +45,7 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 Summary:    %name library
 Group:      System/Libraries
 Obsoletes:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
+Conflicts:  %name < 0.6.1-0.1100688.5
 
 %description -n %libskgbankgui
 %name library.
@@ -53,6 +53,7 @@ Obsoletes:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 %files -n %libskgbankgui
 %defattr(-,root,root,-)
 %_kde_libdir/libskgbankgui.so.%{libskgbankgui_major}*
+%_kde_libdir/kde4/plugins/designer/libskgbankgui.so.%{libskgbankgui_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -80,6 +81,7 @@ Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 Summary:    %name library
 Group:      System/Libraries
 Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
+Conflicts:  %name < 0.6.1-0.1100688.5
 
 %description -n %libskgbasegui
 %name library.
@@ -87,6 +89,7 @@ Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
 %files -n %libskgbasegui
 %defattr(-,root,root,-)
 %_kde_libdir/libskgbasegui.so.%{libskgbasegui_major}*
+%_kde_libdir/kde4/plugins/designer/libskgbasegui.so.%{libskgbasegui_major}*
 
 #-----------------------------------------------------------------------------
 
