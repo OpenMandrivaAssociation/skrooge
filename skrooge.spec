@@ -1,14 +1,11 @@
-%define svn 1100688
-
 Name: skrooge
-Version: 0.6.1
-Release: %mkrel 0.%svn.5
+Version: 0.7.0
+Release: %mkrel 1
 Summary: Personal Finance Management Tool
-Source0: http://websvn.kde.org/*checkout*/tags/skrooge/%{version}/%{name}-%{version}.%svn.tar.bz2
-Patch0:  skrooge-0.6.1-fix-soname.patch 
-License: GPLv2+
+Source0: http://skrooge.org/files/%{name}-%{version}.tar.bz2
+License: GPLv3+
 Group: Office
-Url: http://extragear.kde.org/apps/skrooge/
+Url: http://skrooge.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: kdelibs4-devel
 BuildRequires: qca2-devel
@@ -131,8 +128,8 @@ based on skrooge.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %name
-%patch0 -p0 -b .fix_soname
+%setup -q -n %name-%version
+
 %build
 %cmake_kde4
 %make
