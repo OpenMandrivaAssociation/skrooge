@@ -14,7 +14,9 @@ BuildRequires: sqlite3-devel
 BuildRequires: libofx-devel
 BuildRequires:  desktop-file-utils
 Requires: qt4-database-plugin-sqlite
+Requires: qca2-plugin-openssl
 Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
+
 
 %description
 Skrooge is a personal finance management tool for KDE4, with the aim of
