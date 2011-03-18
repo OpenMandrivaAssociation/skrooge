@@ -1,5 +1,5 @@
 Name: skrooge
-Version: 0.8.0
+Version: 0.8.1
 Release: %mkrel 1
 Summary: Personal Finance Management Tool
 Source0: http://skrooge.org/files/%{name}-%{version}.tar.bz2
@@ -139,13 +139,6 @@ based on skrooge.
 %install
 rm -rf %{buildroot}
 %{makeinstall_std} -C build
-
-
-# We copy some missing icons from oxygen to hicolor
-for size in 16 22 32 48 64 128; do
-    mkdir -p %buildroot/%_datadir/icons/hicolor/${size}x${size}/apps
-    %__cp %buildroot%_kde_iconsdir/oxygen/${size}x${size}/apps/skrooge.png %buildroot/%_datadir/icons/hicolor/${size}x${size}/apps
-done
 
 %check
 for f in %{buildroot}%{_kde_datadir}/applications/kde4/*.desktop ; do
