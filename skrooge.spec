@@ -1,21 +1,23 @@
-Name: skrooge
-Version: 0.9.0
-Release: %mkrel 1
-Summary: Personal Finance Management Tool
-Source0: http://skrooge.org/files/%{name}-%{version}.tar.bz2
-License: GPLv3+
-Group: Office
-Url: http://skrooge.org
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: kdelibs4-devel
-BuildRequires: qca2-devel
-BuildRequires: kdesdk4-scripts
-BuildRequires: sqlite3-devel
-BuildRequires: libofx-devel
-BuildRequires:  desktop-file-utils
-Requires: qt4-database-plugin-sqlite
-Requires: qca2-plugin-openssl
-Conflicts:  %{_lib}skrooge1 < 0.6.1-0.1100688.2
+Name:		skrooge
+Version:	0.9.0
+Release:	%mkrel 1
+Summary:	Personal Finance Management Tool
+Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
+Patch0:		skrooge_ru.po.patch
+Patch1:		skrooge.desktop.patch
+License:	GPLv3+
+Group:		Office
+Url:		http://skrooge.org
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	kdelibs4-devel
+BuildRequires:	qca2-devel
+BuildRequires:	kdesdk4-scripts
+BuildRequires:	sqlite3-devel
+BuildRequires:	libofx-devel
+BuildRequires:	desktop-file-utils
+Requires:	qt4-database-plugin-sqlite
+Requires:	qca2-plugin-openssl
+Conflicts:	%{_lib}skrooge1 < 0.6.1-0.1100688.2
 
 
 %description
@@ -131,6 +133,8 @@ based on skrooge.
 
 %prep
 %setup -q -n %name-%version
+%patch0 -p0
+%patch1 -p0
 
 %build
 %cmake_kde4
