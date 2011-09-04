@@ -1,10 +1,11 @@
 Name:		skrooge
 Version:	0.9.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 Summary:	Personal Finance Management Tool
 Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
-Patch0:		skrooge_ru.po.patch
-Patch1:		skrooge.desktop.patch
+Source1:	%{name}.po
+Patch0:		%{name}.po.patch
+Patch1:		%{name}.desktop.patch
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
