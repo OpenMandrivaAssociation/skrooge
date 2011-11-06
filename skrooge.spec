@@ -1,6 +1,6 @@
 Name:		skrooge
-Version:	0.9.0
-Release:	%mkrel 3
+Version:	1.0.0
+Release:	%mkrel 1
 Summary:	Personal Finance Management Tool
 Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
 Source1:	%{name}.po
@@ -134,8 +134,8 @@ based on skrooge.
 
 %prep
 %setup -q -n %name-%version
-%patch0 -p0
-%patch1 -p0
+#%patch0 -p0
+#%patch1 -p0
 
 %build
 %cmake_kde4
