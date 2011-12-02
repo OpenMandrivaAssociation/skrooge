@@ -1,6 +1,6 @@
 Name:		skrooge
-Version:	1.0.0
-Release:	%mkrel 1
+Version:	1.1.1
+Release:	1
 Summary:	Personal Finance Management Tool
 Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
 Source1:	%{name}.po
@@ -9,7 +9,6 @@ Patch1:		%{name}.desktop.patch
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdelibs4-devel
 BuildRequires:	qca2-devel
 BuildRequires:	kdesdk4-scripts
@@ -152,6 +151,3 @@ for f in %{buildroot}%{_kde_datadir}/applications/kde4/*.desktop ; do
 done 
 
 %find_lang %name --with-html
-
-%clean
-rm -rf %{buildroot}
