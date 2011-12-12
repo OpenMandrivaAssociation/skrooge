@@ -1,6 +1,6 @@
 Name:		skrooge
 Version:	1.1.1
-Release:	1
+Release:	%mkrel 1
 Summary:	Personal Finance Management Tool
 Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
 Source1:	%{name}.po
