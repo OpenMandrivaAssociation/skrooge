@@ -121,7 +121,7 @@ based on skrooge.
 
 %files devel
 %{_kde_libdir}/*.so
-%{_libdir}/grantlee/0.1/grantlee_skroogefilters.so
+#% {_libdir}/grantlee/0.1/grantlee_skroogefilters.so
 
 #--------------------------------------------------------------------
 
