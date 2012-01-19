@@ -1,5 +1,5 @@
 Name:		skrooge
-Version:	1.1.1
+Version:	1.2.0
 Release:	%mkrel 1
 Summary:	Personal Finance Management Tool
 Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
@@ -121,6 +121,7 @@ based on skrooge.
 
 %files devel
 %{_kde_libdir}/*.so
+%{_libdir}/grantlee/0.1/grantlee_skroogefilters.so
 
 #--------------------------------------------------------------------
 
