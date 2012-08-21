@@ -1,5 +1,5 @@
 Name:		skrooge
-Version:	1.3.0
+Version:	1.3.2
 %if %mdkversion >= 201100
 Release:	1
 %else
