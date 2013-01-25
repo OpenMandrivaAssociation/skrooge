@@ -12,6 +12,7 @@ BuildRequires:	kdesdk4-scripts
 BuildRequires:	sqlite-devel
 BuildRequires:	libofx-devel
 BuildRequires:  desktop-file-utils
+BuildRequires:  grantlee-devel
 Requires:	qt4-database-plugin-sqlite
 Requires:	qca2-plugin-openssl
 Conflicts:	%{_lib}skrooge1 < 0.6.1-0.1100688.2
