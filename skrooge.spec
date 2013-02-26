@@ -8,11 +8,13 @@ Url:		http://skrooge.org
 Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
 BuildRequires:	kdelibs4-devel
 BuildRequires:	qca2-devel
+BuildRequires:  kdepim4-devel
 BuildRequires:	kdesdk4-scripts
 BuildRequires:	sqlite-devel
 BuildRequires:	libofx-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  grantlee-devel
+BuildRequires:  pkgconfig(libkactivities)
 Requires:	qt4-database-plugin-sqlite
 Requires:	qca2-plugin-openssl
 Conflicts:	%{_lib}skrooge1 < 0.6.1-0.1100688.2
