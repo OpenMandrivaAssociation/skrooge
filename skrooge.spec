@@ -8,15 +8,16 @@ Url:		http://skrooge.org
 Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
 BuildRequires:	kdelibs4-devel
 BuildRequires:	qca2-devel
-BuildRequires:  kdepim4-devel
+BuildRequires:	kdepim4-devel
 BuildRequires:	kdesdk4-scripts
-BuildRequires:	sqlite-devel
+BuildRequires:	sqlite3-devel
 BuildRequires:	libofx-devel
+BuildRequires:	grantlee-devel
 BuildRequires:  desktop-file-utils
-BuildRequires:  grantlee-devel
 BuildRequires:  pkgconfig(libkactivities)
 Requires:	qt4-database-plugin-sqlite
 Requires:	qca2-plugin-openssl
+Requires:       grantlee
 Conflicts:	%{_lib}skrooge1 < 0.6.1-0.1100688.2
 
 
@@ -31,14 +32,17 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_kde_datadir}/applications/kde4/*.desktop
 %{_datadir}/mime/packages/*.xml
 %{_kde_datadir}/config.kcfg/*.kcfg
+%{_datadir}/config/*.knsrc
 %{_kde_services}/*.desktop
 %{_kde_servicetypes}/*.desktop
+%{_datadir}/akonadi/agents/skroogeakonadiresource.desktop
 %{_kde_appsdir}/*
 %{_kde_iconsdir}/*/*/*/*
+%{_kde_libdir}/kde4/plugins/grantlee
 
 #-----------------------------------------------------------------------------
 
-%define libskgbankgui_major 0
+%define libskgbankgui_major 1
 %define libskgbankgui %mklibname skgbankgui %{libskgbankgui_major}
 
 %package -n %{libskgbankgui}
@@ -52,11 +56,11 @@ Conflicts:  %{name} < 0.6.1-0.1100688.5
 
 %files -n %{libskgbankgui}
 %{_kde_libdir}/libskgbankgui.so.%{libskgbankgui_major}*
-%{_kde_libdir}/kde4/plugins/designer/libskgbankgui.so.%{libskgbankgui_major}*
+#%{_kde_libdir}/kde4/plugins/designer/libskgbankgui.so.%{libskgbankgui_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libskgbankmodeler_major 0
+%define libskgbankmodeler_major 1
 %define libskgbankmodeler %mklibname skgbankmodeler %{libskgbankmodeler_major}
 
 %package -n %{libskgbankmodeler}
@@ -72,7 +76,7 @@ Conflicts:	%{_lib}skrooge1 < 0.6.1-0.1100688.2
 
 #-----------------------------------------------------------------------------
 
-%define libskgbasegui_major 0
+%define libskgbasegui_major 1
 %define libskgbasegui %mklibname skgbasegui %{libskgbasegui_major}
 
 %package -n %{libskgbasegui}
@@ -86,11 +90,11 @@ Conflicts:	%{name} < 0.6.1-0.1100688.5
 
 %files -n %{libskgbasegui}
 %{_kde_libdir}/libskgbasegui.so.%{libskgbasegui_major}*
-%{_kde_libdir}/kde4/plugins/designer/libskgbasegui.so.%{libskgbasegui_major}*
+#%{_kde_libdir}/kde4/plugins/designer/libskgbasegui.so.%{libskgbasegui_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libskgbasemodeler_major 0
+%define libskgbasemodeler_major 1
 %define libskgbasemodeler %mklibname skgbasemodeler %{libskgbasemodeler_major}
 
 %package -n %{libskgbasemodeler}
@@ -121,7 +125,7 @@ based on skrooge.
 
 %files devel
 %{_kde_libdir}/*.so
-%{_kde_plugindir}/designer/*.so
+#%{_kde_plugindir}/designer/*.so
 
 #--------------------------------------------------------------------
 
@@ -141,3 +145,4 @@ for f in %{buildroot}%{_kde_datadir}/applications/kde4/*.desktop ; do
 done 
 
 %find_lang %{name} --with-html
+
