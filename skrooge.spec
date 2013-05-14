@@ -1,5 +1,5 @@
 Name:		skrooge
-Version:	1.5.1
+Version:	1.7.1
 Release:	1
 Summary:	Personal Finance Management Tool
 License:	GPLv3+
