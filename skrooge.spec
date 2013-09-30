@@ -10,7 +10,6 @@ BuildRequires:	grantlee
 BuildRequires:	grantlee-devel
 BuildRequires:	kdelibs4-devel
 BuildRequires:	kdepim4-devel
-BuildRequires:	kdesdk4-scripts
 BuildRequires:	pkgconfig(libkactivities)
 BuildRequires:	pkgconfig(libofx)
 BuildRequires:	pkgconfig(qca2)
