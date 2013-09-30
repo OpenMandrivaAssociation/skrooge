@@ -1,7 +1,7 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	1.7.1
-Release:	2
+Version:	1.7.8
+Release:	1
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
@@ -103,10 +103,10 @@ Group:		System/Libraries
 %package devel
 Summary:	Skrooge development files
 Group:		Development/KDE and Qt
-Requires:	%{libskgbasemodeler} = %{version}-%{release}
-Requires:	%{libskgbasegui} = %{version}-%{release}
-Requires:	%{libskgbankmodeler} = %{version}-%{release}
-Requires:	%{libskgbankgui} = %{version}-%{release}
+Requires:	%{libskgbasemodeler} = %{EVRD}
+Requires:	%{libskgbasegui} = %{EVRD}
+Requires:	%{libskgbankmodeler} = %{EVRD}
+Requires:	%{libskgbankgui} = %{EVRD}
 
 %description devel
 This package contains header files needed if you wish to build applications
