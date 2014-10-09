@@ -12,10 +12,10 @@ BuildRequires:	kdelibs4-devel
 BuildRequires:	kdepim4-devel
 BuildRequires:	pkgconfig(libkactivities)
 BuildRequires:	pkgconfig(libofx)
-BuildRequires:	pkgconfig(qca2)
+BuildRequires:	qca2-devel-qt4
 BuildRequires:	pkgconfig(sqlite3)
 Requires:	qt4-database-plugin-sqlite
-Requires:	qca2-plugin-openssl
+Requires:	%{_lib}qca2-qt4-plugin-openssl
 Requires:	grantlee
 
 %description
@@ -120,6 +120,8 @@ based on skrooge.
 %setup -q
 
 %build
+#need bespoke pkg path due to qt4/5 split
+export PKG_CONFIG_PATH=%{_libdir}/qt4/pkgconfig
 %cmake_kde4
 %make
 
