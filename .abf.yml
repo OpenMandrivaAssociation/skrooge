@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   skrooge-1.8.0.tar.bz2: c31e678c10b70fa4240c61a1179c49b135000204
+sources:
+  skrooge-1.10.0.tar.bz2: fbe3e5b3d25747c1ed093395fc52a19c1deefb71
