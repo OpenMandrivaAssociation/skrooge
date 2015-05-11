@@ -1,7 +1,7 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	1.7.1
-Release:	3
+Version:	1.11.0
+Release:	0.1
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
@@ -10,7 +10,6 @@ BuildRequires:	grantlee
 BuildRequires:	grantlee-devel
 BuildRequires:	kdelibs4-devel
 BuildRequires:	kdepim4-devel
-BuildRequires:	kdesdk4-scripts
 BuildRequires:	pkgconfig(libkactivities)
 BuildRequires:	pkgconfig(libofx)
 BuildRequires:	pkgconfig(qca2)
@@ -103,10 +102,10 @@ Group:		System/Libraries
 %package devel
 Summary:	Skrooge development files
 Group:		Development/KDE and Qt
-Requires:	%{libskgbasemodeler} = %{version}-%{release}
-Requires:	%{libskgbasegui} = %{version}-%{release}
-Requires:	%{libskgbankmodeler} = %{version}-%{release}
-Requires:	%{libskgbankgui} = %{version}-%{release}
+Requires:	%{libskgbasemodeler} = %{EVRD}
+Requires:	%{libskgbasegui} = %{EVRD}
+Requires:	%{libskgbankmodeler} = %{EVRD}
+Requires:	%{libskgbankgui} = %{EVRD}
 
 %description devel
 This package contains header files needed if you wish to build applications
@@ -121,6 +120,8 @@ based on skrooge.
 %setup -q
 
 %build
+#need bespoke pkg path due to qt4/5 split
+export PKG_CONFIG_PATH=%{_libdir}/qt4/pkgconfig
 %cmake_kde4
 %make
 
