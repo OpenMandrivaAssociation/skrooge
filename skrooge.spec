@@ -1,6 +1,6 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	1.11.0
+Version:	1.12.0
 Release:	0.1
 License:	GPLv3+
 Group:		Office
@@ -36,6 +36,7 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_kde_servicetypes}/*.desktop
 %{_datadir}/mime/packages/*.xml
 %{_datadir}/akonadi/agents/skroogeakonadiresource.desktop
+%{_datadir}/appdata/skrooge.appdata.xml
 
 #-----------------------------------------------------------------------------
 
