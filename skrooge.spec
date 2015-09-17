@@ -1,22 +1,52 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	1.12.0
-Release:	2
+Version:	2.1.1
+Release:	1
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
-Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
-BuildRequires:	grantlee
-BuildRequires:	grantlee-devel
-BuildRequires:	kdelibs4-devel
-BuildRequires:	kdepim4-devel
-BuildRequires:	pkgconfig(libkactivities)
+Source0:	http://skrooge.org/files/%{name}-%{version}.tar.xz
+BuildRequires: cmake(KF5Archive)
+BuildRequires: cmake(KF5Config)
+BuildRequires: cmake(KF5CoreAddons)
+BuildRequires: cmake(KF5I18n)
+BuildRequires: cmake(KF5ItemViews)
+BuildRequires: cmake(KF5WidgetsAddons)
+BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: cmake(KF5Completion)
+BuildRequires: cmake(KF5DocTools)
+BuildRequires: cmake(KF5JobWidgets)
+BuildRequires: cmake(KF5ConfigWidgets)
+BuildRequires: cmake(KF5DesignerPlugin)
+BuildRequires: cmake(KF5IconThemes)
+BuildRequires: cmake(KF5KIO)
+BuildRequires: cmake(KF5NewStuff)
+BuildRequires: cmake(KF5Parts)
+BuildRequires: cmake(KF5Wallet)
+BuildRequires: cmake(KF5XmlGui)
+
+BuildRequires: cmake(Qt5Core)
+BuildRequires: cmake(Qt5DBus)
+BuildRequires: cmake(Qt5Widgets)
+BuildRequires: cmake(Qt5WebKitWidgets)
+BuildRequires: cmake(Qt5Script)
+BuildRequires: cmake(Qt5Sql)
+BuildRequires: cmake(Qt5Test)
+BuildRequires: cmake(Qt5Designer)
+BuildRequires: cmake(Qt5PrintSupport)
+BuildRequires: cmake(Qt5Svg)
+BuildRequires: cmake(Qt5Xml)
+BuildRequires: cmake(Qt5Concurrent)
+BuildRequires: cmake(Qt5Qml)
+
+BuildRequires: cmake(Grantlee5)
 BuildRequires:	pkgconfig(libofx)
-BuildRequires:	qca2-devel-qt4
 BuildRequires:	pkgconfig(sqlite3)
-Requires:	qt4-database-plugin-sqlite
-Requires:	%{_lib}qca2-qt4-plugin-openssl
-Requires:	grantlee
+BuildRequires:	pkgconfig(sqlcipher)
+BuildRequires:	cmake(Qca-qt5)
+Requires:	qt5-database-plugin-sqlite
+Requires:	%{_lib}qca2-qt5-plugin-openssl
+Requires:	grantlee5
 
 %description
 Skrooge is a personal finance management tool for KDE4, with the aim of
@@ -24,23 +54,26 @@ being highly intuitive, while providing powerful functions such as
 graphics, persistent Undo/Redo, infinite category levels, and much more...
 
 %files -f %{name}.lang
-%{_kde_bindir}/*
-%{_kde_libdir}/kde4/*.so
-%{_kde_libdir}/kde4/plugins/grantlee
-%{_kde_appsdir}/*
-%{_kde_applicationsdir}/*.desktop
-%{_kde_datadir}/config.kcfg/*.kcfg
-%{_kde_configdir}/*.knsrc
-%{_kde_iconsdir}/*/*/*/*
-%{_kde_services}/*.desktop
-%{_kde_servicetypes}/*.desktop
+%{_sysconfdir}/xdg/*.knsrc
+%{_kde5_bindir}/*
+%{_kde5_applicationsdir}/*.desktop
+%{_kde5_datadir}/config.kcfg/*.kcfg
+%{_kde5_iconsdir}/*/*/*/*
+%{_kde5_services}/*.desktop
+%{_kde5_servicetypes}/*.desktop
+%{_kde5_datadir}/%{name}
+%{_kde5_xmlguidir}/*
 %{_datadir}/mime/packages/*.xml
-%{_datadir}/akonadi/agents/skroogeakonadiresource.desktop
-%{_datadir}/appdata/skrooge.appdata.xml
+%{_datadir}/appdata/org.kde.skrooge.appdata.xml
+%{_qt5_plugindir}/grantlee/5.0/*.so
+%{_qt5_plugindir}/skg_*.so
+%{_qt5_plugindir}/skrooge_*.so
+%{_qt5_plugindir}/sqldrivers/*.so
+%{_datadir}/knotifications5/*
 
 #-----------------------------------------------------------------------------
 
-%define libskgbankgui_major 1
+%define libskgbankgui_major 2
 %define libskgbankgui %mklibname skgbankgui %{libskgbankgui_major}
 
 %package -n %{libskgbankgui}
@@ -51,11 +84,11 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbankgui}
-%{_kde_libdir}/libskgbankgui.so.%{libskgbankgui_major}*
+%{_kde5_libdir}/libskgbankgui.so.%{libskgbankgui_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libskgbankmodeler_major 1
+%define libskgbankmodeler_major 2
 %define libskgbankmodeler %mklibname skgbankmodeler %{libskgbankmodeler_major}
 
 %package -n %{libskgbankmodeler}
@@ -66,11 +99,11 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbankmodeler}
-%{_kde_libdir}/libskgbankmodeler.so.%{libskgbankmodeler_major}*
+%{_kde5_libdir}/libskgbankmodeler.so.%{libskgbankmodeler_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libskgbasegui_major 1
+%define libskgbasegui_major 2
 %define libskgbasegui %mklibname skgbasegui %{libskgbasegui_major}
 
 %package -n %{libskgbasegui}
@@ -81,11 +114,11 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbasegui}
-%{_kde_libdir}/libskgbasegui.so.%{libskgbasegui_major}*
+%{_kde5_libdir}/libskgbasegui.so.%{libskgbasegui_major}*
 
 #-----------------------------------------------------------------------------
 
-%define libskgbasemodeler_major 1
+%define libskgbasemodeler_major 2
 %define libskgbasemodeler %mklibname skgbasemodeler %{libskgbasemodeler_major}
 
 %package -n %{libskgbasemodeler}
@@ -96,7 +129,7 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbasemodeler}
-%{_kde_libdir}/libskgbasemodeler.so.%{libskgbasegui_major}*
+%{_kde5_libdir}/libskgbasemodeler.so.%{libskgbasegui_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -113,7 +146,8 @@ This package contains header files needed if you wish to build applications
 based on skrooge.
 
 %files devel
-%{_kde_libdir}/*.so
+%{_kde5_libdir}/*.so
+%_qt5_plugindir/plugins/designer/*.so
 
 #--------------------------------------------------------------------
 
@@ -121,13 +155,11 @@ based on skrooge.
 %setup -q
 
 %build
-#need bespoke pkg path due to qt4/5 split
-export PKG_CONFIG_PATH=%{_libdir}/qt4/pkgconfig
-%cmake_kde4
-%make
+%cmake_kde5
+%ninja
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
 %find_lang %{name} --with-html
 
