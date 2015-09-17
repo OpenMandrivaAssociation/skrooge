@@ -1,11 +1,11 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	1.12.0
+Version:	1.12.5
 Release:	0.1
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
-Source0:	http://skrooge.org/files/%{name}-%{version}.tar.bz2
+Source0:	http://skrooge.org/files/%{name}-%{version}.tar.xz
 BuildRequires:	grantlee
 BuildRequires:	grantlee-devel
 BuildRequires:	kdelibs4-devel
