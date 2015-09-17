@@ -52,8 +52,8 @@ BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(sqlcipher)
 BuildRequires:	cmake(Qca-qt5)
 Requires:	qt5-database-plugin-sqlite
-Requires:	%{_lib}qca2-qt5-plugin-openssl
-Requires:	grantlee5
+Requires:	%{_lib}qca2-plugin-openssl
+Requires:	grantlee
 
 %description
 Skrooge is a personal finance management tool for KDE4, with the aim of
