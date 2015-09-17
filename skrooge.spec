@@ -26,6 +26,7 @@ BuildRequires: cmake(KF5Wallet)
 BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5KDELibs4Support)
 BuildRequires: cmake(KF5NotifyConfig)
+BuildRequires: cmake(KF5DBusAddons)
 
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5DBus)
@@ -40,6 +41,9 @@ BuildRequires: cmake(Qt5Svg)
 BuildRequires: cmake(Qt5Xml)
 BuildRequires: cmake(Qt5Concurrent)
 BuildRequires: cmake(Qt5Qml)
+
+BuildRequires:	cmake(KdepimLibs)
+BuildRequires:	shared-mime-info
 
 BuildRequires: cmake(Grantlee5)
 BuildRequires:	pkgconfig(libofx)
