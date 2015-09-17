@@ -27,6 +27,7 @@ BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5KDELibs4Support)
 BuildRequires: cmake(KF5NotifyConfig)
 BuildRequires: cmake(KF5DBusAddons)
+BuildRequires: cmake(KF5Runner)
 
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5DBus)
