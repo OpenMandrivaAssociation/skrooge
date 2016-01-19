@@ -1,6 +1,6 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	2.1.1
+Version:	2.2.0
 Release:	1
 License:	GPLv3+
 Group:		Office
@@ -154,7 +154,7 @@ based on skrooge.
 
 %files devel
 %{_kde5_libdir}/*.so
-%_qt5_plugindir/plugins/designer/*.so
+%_qt5_plugindir/designer/*.so
 
 #--------------------------------------------------------------------
 
