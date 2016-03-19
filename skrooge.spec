@@ -6,6 +6,7 @@ License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
 Source0:	http://skrooge.org/files/%{name}-%{version}.tar.xz
+Patch0:		skrooge-2.3.0-fix-isnan-isinf.patch
 BuildRequires:	cmake(KF5Archive)
 BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5CoreAddons)
@@ -160,6 +161,7 @@ based on skrooge.
 
 %prep
 %setup -q
+%apply_patches
 %cmake_kde5
 
 %build

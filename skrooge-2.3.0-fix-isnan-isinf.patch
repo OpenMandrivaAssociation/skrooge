@@ -1,0 +1,24 @@
+diff -Naur skrooge-2.3.0/plugins/import/skrooge_import_gnc/skgimportplugingnc.cpp skrooge-2.3.0.tpg/plugins/import/skrooge_import_gnc/skgimportplugingnc.cpp
+--- skrooge-2.3.0/plugins/import/skrooge_import_gnc/skgimportplugingnc.cpp	2016-02-21 21:01:52.000000000 +0000
++++ skrooge-2.3.0.tpg/plugins/import/skrooge_import_gnc/skgimportplugingnc.cpp	2016-03-19 15:44:33.618873052 +0000
+@@ -386,7 +386,7 @@
+                                         }
+                                     }
+ 
+-                                    if (!isnan(info.value)) {
++                                    if (!std::isnan(info.value)) {
+                                         QChar accountType = mapIdType[info.account.text()];
+                                         if (accountType == 'C') {
+                                             suboperationsList.push_front(info);
+diff -Naur skrooge-2.3.0/skgbasemodeler/skgdocument.cpp skrooge-2.3.0.tpg/skgbasemodeler/skgdocument.cpp
+--- skrooge-2.3.0/skgbasemodeler/skgdocument.cpp	2016-02-21 21:01:52.000000000 +0000
++++ skrooge-2.3.0.tpg/skgbasemodeler/skgdocument.cpp	2016-03-19 15:45:05.329715217 +0000
+@@ -2693,7 +2693,7 @@
+     if (iValue > 0) {
+         p = '+' % p;
+     }
+-    if (p.count() > 10 || isnan(iValue) || isinf(iValue)) {
++    if (p.count() > 10 || std::isnan(iValue) || std::isinf(iValue)) {
+         p = QChar(8734);
+     }
+     return "<font color=\"" %
