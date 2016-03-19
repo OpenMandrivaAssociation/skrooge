@@ -1,61 +1,59 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	2.2.0
-Release:	2
+Version:	2.3.0
+Release:	1
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
 Source0:	http://skrooge.org/files/%{name}-%{version}.tar.xz
-BuildRequires: cmake(KF5Archive)
-BuildRequires: cmake(KF5Config)
-BuildRequires: cmake(KF5CoreAddons)
-BuildRequires: cmake(KF5I18n)
-BuildRequires: cmake(KF5ItemViews)
-BuildRequires: cmake(KF5WidgetsAddons)
-BuildRequires: cmake(KF5WindowSystem)
-BuildRequires: cmake(KF5Completion)
-BuildRequires: cmake(KF5DocTools)
-BuildRequires: cmake(KF5JobWidgets)
-BuildRequires: cmake(KF5ConfigWidgets)
-BuildRequires: cmake(KF5DesignerPlugin)
-BuildRequires: cmake(KF5IconThemes)
-BuildRequires: cmake(KF5KIO)
-BuildRequires: cmake(KF5NewStuff)
-BuildRequires: cmake(KF5Parts)
-BuildRequires: cmake(KF5Wallet)
-BuildRequires: cmake(KF5XmlGui)
-BuildRequires: cmake(KF5KDELibs4Support)
-BuildRequires: cmake(KF5NotifyConfig)
-BuildRequires: cmake(KF5DBusAddons)
-BuildRequires: cmake(KF5Runner)
-
-BuildRequires: cmake(Qt5Core)
-BuildRequires: cmake(Qt5DBus)
-BuildRequires: cmake(Qt5Widgets)
-BuildRequires: cmake(Qt5WebKitWidgets)
-BuildRequires: cmake(Qt5Script)
-BuildRequires: cmake(Qt5Sql)
-BuildRequires: cmake(Qt5Test)
-BuildRequires: cmake(Qt5Designer)
-BuildRequires: cmake(Qt5PrintSupport)
-BuildRequires: cmake(Qt5Svg)
-BuildRequires: cmake(Qt5Xml)
-BuildRequires: cmake(Qt5Concurrent)
-BuildRequires: cmake(Qt5Qml)
-
+BuildRequires:	cmake(KF5Archive)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5ItemViews)
+BuildRequires:	cmake(KF5WidgetsAddons)
+BuildRequires:	cmake(KF5WindowSystem)
+BuildRequires:	cmake(KF5Completion)
+BuildRequires:	cmake(KF5DocTools)
+BuildRequires:	cmake(KF5JobWidgets)
+BuildRequires:	cmake(KF5ConfigWidgets)
+BuildRequires:	cmake(KF5DesignerPlugin)
+BuildRequires:	cmake(KF5IconThemes)
+BuildRequires:	cmake(KF5KIO)
+BuildRequires:	cmake(KF5NewStuff)
+BuildRequires:	cmake(KF5Parts)
+BuildRequires:	cmake(KF5Wallet)
+BuildRequires:	cmake(KF5XmlGui)
+BuildRequires:	cmake(KF5KDELibs4Support)
+BuildRequires:	cmake(KF5NotifyConfig)
+BuildRequires:	cmake(KF5DBusAddons)
+BuildRequires:	cmake(KF5Runner)
+BuildRequires:	cmake(Qt5Core)
+BuildRequires:	cmake(Qt5DBus)
+BuildRequires:	cmake(Qt5Widgets)
+BuildRequires:	cmake(Qt5WebKitWidgets)
+BuildRequires:	cmake(Qt5Script)
+BuildRequires:	cmake(Qt5Sql)
+BuildRequires:	cmake(Qt5Test)
+BuildRequires:	cmake(Qt5Designer)
+BuildRequires:	cmake(Qt5PrintSupport)
+BuildRequires:	cmake(Qt5Svg)
+BuildRequires:	cmake(Qt5Xml)
+BuildRequires:	cmake(Qt5Concurrent)
+BuildRequires:	cmake(Qt5Qml)
 BuildRequires:	cmake(KdepimLibs)
-BuildRequires:	shared-mime-info
-
-BuildRequires: cmake(Grantlee5)
+BuildRequires:	cmake(Grantlee5)
+BuildRequires:	cmake(Qca-qt5)
 BuildRequires:	pkgconfig(libofx)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(sqlcipher)
-BuildRequires:	cmake(Qca-qt5)
+BuildRequires:	shared-mime-info
 Requires:	qt5-database-plugin-sqlite
 Requires:	%{_lib}qca2-plugin-openssl
 Requires:	grantlee
 # uses during version checking
 Requires:	sqlcipher
+
 %description
 Skrooge is a personal finance management tool for KDE4, with the aim of
 being highly intuitive, while providing powerful functions such as
@@ -155,16 +153,16 @@ based on skrooge.
 
 %files devel
 %{_kde5_libdir}/*.so
-%_qt5_plugindir/designer/*.so
+%{_qt5_plugindir}/designer/*.so
 
 #--------------------------------------------------------------------
 
 %prep
 %setup -q
+%cmake_kde5
 
 %build
-%cmake_kde5
-%ninja
+%ninja -C build
 
 %install
 %ninja_install -C build
