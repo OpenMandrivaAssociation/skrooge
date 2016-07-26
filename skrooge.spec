@@ -1,12 +1,11 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	2.3.0
-Release:	3
+Version:	2.4.0
+Release:	1
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
-Source0:	http://skrooge.org/files/%{name}-%{version}.tar.xz
-Patch0:		skrooge-2.3.0-fix-isnan-isinf.patch
+Source0:	http://download.kde.org/stable/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(KF5Archive)
 BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5CoreAddons)
