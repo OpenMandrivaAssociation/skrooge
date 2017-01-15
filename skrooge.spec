@@ -153,7 +153,6 @@ This package contains header files needed if you wish to build applications
 based on skrooge.
 
 %files devel
-%{_kde5_libdir}/*.so
 %{_qt5_plugindir}/designer/*.so
 
 #--------------------------------------------------------------------
