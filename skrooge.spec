@@ -1,3 +1,8 @@
+%ifarch %{arm} %{armx}
+# /usr/bin/ld: error: /usr/lib64/libqca-qt5.so.2.1.3: bad symbol name offset 111989914 at 0
+%global optflags %{optflags} -fuse-ld=bfd
+%endif
+
 Summary:	Personal Finance Management Tool
 Name:		skrooge
 Version:	2.8.1
