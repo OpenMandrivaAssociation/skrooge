@@ -50,7 +50,7 @@ BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(sqlcipher)
 BuildRequires:	shared-mime-info
 Requires:	qt5-database-plugin-sqlite
-Requires:	%{_lib}qca2-plugin-openssl
+Requires:	%{_lib}qca2-plugin-gcrypt
 Requires:	grantlee
 # uses during version checking
 Requires:	sqlcipher
