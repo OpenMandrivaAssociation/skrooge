@@ -1,6 +1,11 @@
+%ifarch %{arm} %{armx}
+# /usr/bin/ld: error: /usr/lib64/libqca-qt5.so.2.1.3: bad symbol name offset 111989914 at 0
+%global optflags %{optflags} -fuse-ld=bfd
+%endif
+
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	2.8.1
+Version:	2.11.0
 Release:	1
 License:	GPLv3+
 Group:		Office
@@ -50,7 +55,7 @@ BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(sqlcipher)
 BuildRequires:	shared-mime-info
 Requires:	qt5-database-plugin-sqlite
-Requires:	%{_lib}qca2-plugin-openssl
+Requires:	%{_lib}qca2-plugin-gcrypt
 Requires:	grantlee
 # uses during version checking
 Requires:	sqlcipher
