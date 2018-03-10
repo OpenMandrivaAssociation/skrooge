@@ -81,7 +81,7 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_qt5_plugindir}/skg_*.so
 %{_qt5_plugindir}/skrooge_*.so
 %{_qt5_plugindir}/sqldrivers/*.so
-%{_qt5_plugindir}/designer/*.so*
+%{_qt5_plugindir}/designer/*.so.*
 %{_datadir}/knotifications5/*
 
 #-----------------------------------------------------------------------------
