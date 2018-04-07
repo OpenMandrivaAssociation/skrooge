@@ -3,10 +3,12 @@
 %global optflags %{optflags} -fuse-ld=bfd
 %endif
 
+%define __noautoprovfiles designer\/libskg.*gui.so*
+
 Summary:	Personal Finance Management Tool
 Name:		skrooge
 Version:	2.12.0
-Release:	1
+Release:	2
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
@@ -81,7 +83,6 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_qt5_plugindir}/skg_*.so
 %{_qt5_plugindir}/skrooge_*.so
 %{_qt5_plugindir}/sqldrivers/*.so
-%{_qt5_plugindir}/designer/*.so.*
 %{_datadir}/knotifications5/*
 
 #-----------------------------------------------------------------------------
@@ -160,7 +161,7 @@ based on skrooge.
 
 %files devel
 %{_qt5_plugindir}/designer/*.so
-
+%{_qt5_plugindir}/designer/*.so.*
 #--------------------------------------------------------------------
 
 %prep
