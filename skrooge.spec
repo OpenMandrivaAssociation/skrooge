@@ -8,7 +8,7 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
 Version:	2.14.0
-Release:	1
+Release:	2
 License:	GPLv3+
 Group:		Office
 Url:		http://skrooge.org
