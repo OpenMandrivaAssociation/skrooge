@@ -7,7 +7,7 @@
 
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	2.15.0
+Version:	2.16.2
 Release:	1
 License:	GPLv3+
 Group:		Office
@@ -73,6 +73,7 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_kde5_datadir}/config.kcfg/*.kcfg
 %{_kde5_iconsdir}/*/*/*/*
 %{_kde5_services}/*.desktop
+%{_kde5_services}/sources/*.desktop
 %{_kde5_servicetypes}/*.desktop
 %{_kde5_datadir}/%{name}
 %{_kde5_xmlguidir}/*
@@ -159,7 +160,7 @@ This package contains header files needed if you wish to build applications
 based on skrooge.
 
 %files devel
-%{_qt5_plugindir}/designer/*.so
+%{_qt5_plugindir}/designer/*.so*
 #--------------------------------------------------------------------
 
 %prep
