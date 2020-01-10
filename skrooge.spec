@@ -165,7 +165,7 @@ based on skrooge.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 %cmake_kde5
 
 %build
