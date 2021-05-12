@@ -7,7 +7,7 @@
 
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	2.24.6
+Version:	2.25.0
 Release:	1
 License:	GPLv3+
 Group:		Office
@@ -164,8 +164,7 @@ based on skrooge.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 %cmake_kde5
 
 %build
