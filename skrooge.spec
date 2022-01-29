@@ -68,7 +68,7 @@ being highly intuitive, while providing powerful functions such as
 graphics, persistent Undo/Redo, infinite category levels, and much more...
 
 %files -f %{name}.lang
-%{_sysconfdir}/xdg/*.knsrc
+#{_sysconfdir}/xdg/*.knsrc
 %{_kde5_bindir}/*
 %{_kde5_applicationsdir}/*.desktop
 %{_kde5_datadir}/config.kcfg/*.kcfg
