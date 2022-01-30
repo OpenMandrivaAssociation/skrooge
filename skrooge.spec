@@ -68,7 +68,6 @@ being highly intuitive, while providing powerful functions such as
 graphics, persistent Undo/Redo, infinite category levels, and much more...
 
 %files -f %{name}.lang
-#{_sysconfdir}/xdg/*.knsrc
 %{_kde5_bindir}/*
 %{_kde5_applicationsdir}/*.desktop
 %{_kde5_datadir}/config.kcfg/*.kcfg
@@ -85,6 +84,8 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_qt5_plugindir}/skrooge_*.so
 %{_qt5_plugindir}/sqldrivers/*.so
 %{_datadir}/knotifications5/*
+%{_datadir}/knsrcfiles/skrooge_monthly.knsrc
+%{_datadir}/knsrcfiles/skrooge_unit.knsrc
 
 #-----------------------------------------------------------------------------
 
