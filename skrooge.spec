@@ -82,8 +82,8 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_datadir}/mime/packages/*.xml
 %{_datadir}/metainfo/org.kde.skrooge.appdata.xml
 %{_qt5_plugindir}/grantlee/5.*/*.so
-#{_qt5_plugindir}/skg_*.so
-#{_qt5_plugindir}/skrooge_*.so
+%{_qt5_plugindir}/skg_gui/
+%{_qt5_plugindir}/skrooge/import/
 %{_qt5_plugindir}/sqldrivers/*.so
 %{_datadir}/knotifications5/*
 %{_datadir}/knsrcfiles/skrooge_monthly.knsrc
