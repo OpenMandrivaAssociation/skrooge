@@ -7,12 +7,12 @@
 
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	2.31.0
-Release:	2
+Version:	2.32.0
+Release:	1
 License:	GPLv3+
 Group:		Office
-Url:		http://skrooge.org
-Source0:	http://download.kde.org/stable/%{name}/%{name}-%{version}.tar.xz
+Url:		https://skrooge.org
+Source0:	https://download.kde.org/stable/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(KF5Archive)
 BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5CoreAddons)
