@@ -7,8 +7,8 @@
 
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	2.32.0
-Release:	2
+Version:	2.33.0
+Release:	1
 License:	GPLv3+
 Group:		Office
 Url:		https://skrooge.org
@@ -31,15 +31,12 @@ BuildRequires:	cmake(KF5NewStuff)
 BuildRequires:	cmake(KF5Parts)
 BuildRequires:	cmake(KF5Wallet)
 BuildRequires:	cmake(KF5XmlGui)
-BuildRequires:	cmake(KF5KDELibs4Support)
 BuildRequires:	cmake(KF5NotifyConfig)
 BuildRequires:	cmake(KF5DBusAddons)
-BuildRequires:	cmake(KF5Runner)
 BuildRequires:	cmake(KF5Activities)
 BuildRequires:	cmake(Qt5Core)
 BuildRequires:	cmake(Qt5DBus)
 BuildRequires:	cmake(Qt5Widgets)
-BuildRequires:	cmake(Qt5WebKitWidgets)
 BuildRequires:  cmake(Qt5WebEngineWidgets)
 BuildRequires:	cmake(Qt5QuickWidgets)
 BuildRequires:  cmake(Qt5QuickControls2)
