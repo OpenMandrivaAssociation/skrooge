@@ -27,6 +27,7 @@ BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5DesignerPlugin)
 BuildRequires:	cmake(KF5IconThemes)
 BuildRequires:	cmake(KF5KIO)
+BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5NewStuff)
 BuildRequires:	cmake(KF5Parts)
 BuildRequires:	cmake(KF5Wallet)
@@ -50,14 +51,12 @@ BuildRequires:	cmake(Qt5Xml)
 BuildRequires:	cmake(Qt5Concurrent)
 BuildRequires:	cmake(Qt5Qml)
 BuildRequires:	cmake(Grantlee5)
-BuildRequires:	cmake(Qca-qt5)
 BuildRequires:  cmake(Qt5XmlPatterns)
 BuildRequires:	pkgconfig(libofx)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(sqlcipher)
 BuildRequires:	shared-mime-info
 Requires:	qt5-database-plugin-sqlite
-Requires:	%{_lib}qca2-plugin-gcrypt
 Requires:	grantlee
 # uses during version checking
 Requires:	sqlcipher
