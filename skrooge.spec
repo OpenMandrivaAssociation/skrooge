@@ -8,56 +8,54 @@
 Summary:	Personal Finance Management Tool
 Name:		skrooge
 Version:	25.1.0
-Release:	1
+Release:	2
 License:	GPLv3+
 Group:		Office
 Url:		https://skrooge.org
 Source0:	https://download.kde.org/stable/%{name}/%{name}-%{version}.tar.xz
-BuildRequires:	cmake(KF5Archive)
-BuildRequires:	cmake(KF5Config)
-BuildRequires:	cmake(KF5CoreAddons)
-BuildRequires:	cmake(KF5I18n)
-BuildRequires:	cmake(KF5ItemViews)
-BuildRequires:	cmake(KF5WidgetsAddons)
-BuildRequires:	cmake(KF5WindowSystem)
-BuildRequires:	cmake(KF5Completion)
-BuildRequires:	cmake(KF5DocTools)
-BuildRequires:	cmake(KF5JobWidgets)
-BuildRequires:	cmake(KF5ConfigWidgets)
-BuildRequires:	cmake(KF5DesignerPlugin)
-BuildRequires:	cmake(KF5IconThemes)
-BuildRequires:	cmake(KF5KIO)
-BuildRequires:	cmake(KF5Notifications)
-BuildRequires:	cmake(KF5NewStuff)
-BuildRequires:	cmake(KF5Parts)
-BuildRequires:	cmake(KF5Wallet)
-BuildRequires:	cmake(KF5XmlGui)
-BuildRequires:	cmake(KF5NotifyConfig)
-BuildRequires:	cmake(KF5DBusAddons)
-BuildRequires:	cmake(KF5Activities)
-BuildRequires:	cmake(Qt5Core)
-BuildRequires:	cmake(Qt5DBus)
-BuildRequires:	cmake(Qt5Widgets)
-BuildRequires:  cmake(Qt5WebEngineWidgets)
-BuildRequires:	cmake(Qt5QuickWidgets)
-BuildRequires:  cmake(Qt5QuickControls2)
-BuildRequires:	cmake(Qt5Script)
-BuildRequires:	cmake(Qt5Sql)
-BuildRequires:	cmake(Qt5Test)
-BuildRequires:	cmake(Qt5Designer)
-BuildRequires:	cmake(Qt5PrintSupport)
-BuildRequires:	cmake(Qt5Svg)
-BuildRequires:	cmake(Qt5Xml)
-BuildRequires:	cmake(Qt5Concurrent)
-BuildRequires:	cmake(Qt5Qml)
-BuildRequires:	cmake(Grantlee5)
-BuildRequires:  cmake(Qt5XmlPatterns)
+BuildRequires:	cmake(KF6Archive)
+BuildRequires:	cmake(KF6Config)
+BuildRequires:	cmake(KF6CoreAddons)
+BuildRequires:	cmake(KF6I18n)
+BuildRequires:	cmake(KF6ItemViews)
+BuildRequires:	cmake(KF6WidgetsAddons)
+BuildRequires:	cmake(KF6WindowSystem)
+BuildRequires:	cmake(KF6Completion)
+BuildRequires:	cmake(KF6DocTools)
+BuildRequires:	cmake(KF6JobWidgets)
+BuildRequires:	cmake(KF6ConfigWidgets)
+BuildRequires:	cmake(KF6IconThemes)
+BuildRequires:	cmake(KF6KIO)
+BuildRequires:	cmake(KF6Notifications)
+BuildRequires:	cmake(KF6NewStuff)
+BuildRequires:	cmake(KF6Parts)
+BuildRequires:	cmake(KF6Runner)
+BuildRequires:	cmake(KF6TextTemplate)
+BuildRequires:	cmake(KF6Wallet)
+BuildRequires:	cmake(KF6XmlGui)
+BuildRequires:	cmake(KF6StatusNotifierItem)
+BuildRequires:	cmake(KF6NotifyConfig)
+BuildRequires:	cmake(KF6DBusAddons)
+BuildRequires:	cmake(PlasmaActivities)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6DBus)
+BuildRequires:	cmake(Qt6Widgets)
+BuildRequires:  cmake(Qt6WebEngineWidgets)
+BuildRequires:	cmake(Qt6QuickWidgets)
+BuildRequires:  cmake(Qt6QuickControls2)
+BuildRequires:	cmake(Qt6Sql)
+BuildRequires:	cmake(Qt6Test)
+BuildRequires:	cmake(Qt6Designer)
+BuildRequires:	cmake(Qt6PrintSupport)
+BuildRequires:	cmake(Qt6Svg)
+BuildRequires:	cmake(Qt6Xml)
+BuildRequires:	cmake(Qt6Concurrent)
+BuildRequires:	cmake(Qt6Qml)
 BuildRequires:	pkgconfig(libofx)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(sqlcipher)
 BuildRequires:	shared-mime-info
-Requires:	qt5-database-plugin-sqlite
-Requires:	grantlee
+Requires:	qt6-qtbase-sql-sqlite
 # uses during version checking
 Requires:	sqlcipher
 
@@ -75,11 +73,11 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_kde5_xmlguidir}/*
 %{_datadir}/mime/packages/*.xml
 %{_datadir}/metainfo/org.kde.skrooge.appdata.xml
-%{_qt5_plugindir}/grantlee/5.*/*.so
-%{_qt5_plugindir}/skg_gui/
-%{_qt5_plugindir}/sqldrivers/*.so
-%{_qt5_plugindir}/skrooge_import/
-%{_datadir}/knotifications5/*
+%{_libdir}/qt6/plugins/kf6/ktexttemplate/grantlee_skgfilters.so
+%{_libdir}/qt6/plugins/skg_gui/
+%{_libdir}/qt6/plugins/sqldrivers/*.so
+%{_libdir}/qt6/plugins/skrooge_import/
+%{_datadir}/knotifications6/*
 %{_datadir}/knsrcfiles/skrooge_monthly.knsrc
 %{_datadir}/knsrcfiles/skrooge_unit.knsrc
 %{_datadir}/skrooge_import_backend/
@@ -160,12 +158,11 @@ This package contains header files needed if you wish to build applications
 based on skrooge.
 
 %files devel
-%{_qt5_plugindir}/designer/*.so*
 #--------------------------------------------------------------------
 
 %prep
 %autosetup -p1
-%cmake_kde5
+%cmake -DQT_MAJOR_VERSION=6 -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON -G Ninja
 
 %build
 %ninja -C build
