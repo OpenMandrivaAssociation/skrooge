@@ -66,12 +66,12 @@ being highly intuitive, while providing powerful functions such as
 graphics, persistent Undo/Redo, infinite category levels, and much more...
 
 %files -f %{name}.lang
-%{_kde5_bindir}/*
-%{_kde5_applicationsdir}/*.desktop
-%{_kde5_datadir}/config.kcfg/*.kcfg
-%{_kde5_iconsdir}/*/*/*/*
-%{_kde5_datadir}/%{name}
-%{_kde5_xmlguidir}/*
+#{_kde5_bindir}/*
+#{_kde5_applicationsdir}/*.desktop
+#{_kde5_datadir}/config.kcfg/*.kcfg
+#{_kde5_iconsdir}/*/*/*/*
+#{_kde5_datadir}/%{name}
+#{_kde5_xmlguidir}/*
 %{_datadir}/mime/packages/*.xml
 %{_datadir}/metainfo/org.kde.skrooge.appdata.xml
 %{_libdir}/qt6/plugins/kf6/ktexttemplate/grantlee_skgfilters.so
@@ -97,7 +97,7 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbankgui}
-%{_kde5_libdir}/libskgbankgui.so.%{libskgbankgui_major}*
+#{_kde5_libdir}/libskgbankgui.so.%{libskgbankgui_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -112,7 +112,7 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbankmodeler}
-%{_kde5_libdir}/libskgbankmodeler.so.%{libskgbankmodeler_major}*
+#{_kde5_libdir}/libskgbankmodeler.so.%{libskgbankmodeler_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -127,7 +127,7 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbasegui}
-%{_kde5_libdir}/libskgbasegui.so.%{libskgbasegui_major}*
+#{_kde5_libdir}/libskgbasegui.so.%{libskgbasegui_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -142,7 +142,7 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbasemodeler}
-%{_kde5_libdir}/libskgbasemodeler.so.%{libskgbasegui_major}*
+#{_kde5_libdir}/libskgbasemodeler.so.%{libskgbasegui_major}*
 
 #-----------------------------------------------------------------------------
 
