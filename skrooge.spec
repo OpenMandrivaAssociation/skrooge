@@ -7,7 +7,7 @@
 
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	25.4.0
+Version:	26.1.20
 Release:	1
 License:	GPLv3+
 Group:		Office
@@ -56,6 +56,7 @@ BuildRequires:	pkgconfig(libofx)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(sqlcipher)
 BuildRequires:	shared-mime-info
+BuildRequires:  vulkan-headers
 Requires:	qt6-qtbase-sql-sqlite
 # uses during version checking
 Requires:	sqlcipher
@@ -66,14 +67,12 @@ being highly intuitive, while providing powerful functions such as
 graphics, persistent Undo/Redo, infinite category levels, and much more...
 
 %files -f %{name}.lang
-%{_kde5_bindir}/*
-%{_kde5_applicationsdir}/*.desktop
-%{_kde5_datadir}/config.kcfg/*.kcfg
-%{_kde5_iconsdir}/*/*/*/*
-%{_kde5_datadir}/%{name}
-%{_kde5_xmlguidir}/*
+%{_bindir}/skrooge
+%{_bindir}/skroogeconvert
+%{_datadir}/applications/org.kde.skrooge.desktop
 %{_datadir}/mime/packages/*.xml
 %{_datadir}/metainfo/org.kde.skrooge.appdata.xml
+%{_datadir}/config.kcfg/
 %{_libdir}/qt6/plugins/kf6/ktexttemplate/grantlee_skgfilters.so
 %{_libdir}/qt6/plugins/skg_gui/
 %{_libdir}/qt6/plugins/sqldrivers/*.so
@@ -83,7 +82,11 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_datadir}/knsrcfiles/skrooge_unit.knsrc
 %{_datadir}/skrooge_import_backend/
 %{_datadir}/skrooge_source/
-
+%{_datadir}/icons/breeze-dark/
+%{_datadir}/icons/breeze/actions/
+%{_datadir}/icons/hicolor/*x*/
+%{_datadir}/kxmlgui5/
+%{_datadir}/skrooge/
 #-----------------------------------------------------------------------------
 
 %define libskgbankgui_major 2
@@ -97,7 +100,8 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbankgui}
-%{_kde5_libdir}/libskgbankgui.so.%{libskgbankgui_major}*
+%{_libdir}/libskgbankgui.so.%{libskgbankgui_major}
+%{_libdir}/libskgbankgui.so.%{version}
 
 #-----------------------------------------------------------------------------
 
@@ -112,7 +116,8 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbankmodeler}
-%{_kde5_libdir}/libskgbankmodeler.so.%{libskgbankmodeler_major}*
+%{_libdir}/libskgbankmodeler.so.%{libskgbankmodeler_major}
+%{_libdir}/libskgbankmodeler.so.%{version}
 
 #-----------------------------------------------------------------------------
 
@@ -127,7 +132,8 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbasegui}
-%{_kde5_libdir}/libskgbasegui.so.%{libskgbasegui_major}*
+%{_libdir}/libskgbasegui.so.%{libskgbasegui_major}
+%{_libdir}/libskgbasegui.so.%{version}
 
 #-----------------------------------------------------------------------------
 
@@ -142,7 +148,8 @@ Group:		System/Libraries
 %{name} library.
 
 %files -n %{libskgbasemodeler}
-%{_kde5_libdir}/libskgbasemodeler.so.%{libskgbasegui_major}*
+%{_libdir}/libskgbasemodeler.so.%{libskgbasemodeler_major}
+%{_libdir}/libskgbasemodeler.so.%{version}
 
 #-----------------------------------------------------------------------------
 
