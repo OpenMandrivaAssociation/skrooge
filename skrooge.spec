@@ -85,6 +85,7 @@ graphics, persistent Undo/Redo, infinite category levels, and much more...
 %{_datadir}/icons/breeze-dark/
 %{_datadir}/icons/breeze/actions/
 %{_datadir}/icons/hicolor/*x*/
+%{_datadir}/icons/hicolor/scalable/
 %{_datadir}/kxmlgui5/
 %{_datadir}/skrooge/
 #-----------------------------------------------------------------------------
