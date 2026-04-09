@@ -7,12 +7,16 @@
 
 Summary:	Personal Finance Management Tool
 Name:		skrooge
-Version:	26.1.20
+Version:	26.4.0
 Release:	1
 License:	GPLv3+
 Group:		Office
 Url:		https://skrooge.org
 Source0:	https://download.kde.org/stable/%{name}/%{name}-%{version}.tar.xz
+Patch0:	skrooge-26.4.0-fix-python-shebangs.patch
+BuildRequires:	gettext
+BuildRequires:	shared-mime-info
+BuildRequires:	vulkan-headers
 BuildRequires:	cmake(KF6Archive)
 BuildRequires:	cmake(KF6Config)
 BuildRequires:	cmake(KF6CoreAddons)
@@ -40,9 +44,9 @@ BuildRequires:	cmake(PlasmaActivities)
 BuildRequires:	cmake(Qt6Core)
 BuildRequires:	cmake(Qt6DBus)
 BuildRequires:	cmake(Qt6Widgets)
-BuildRequires:  cmake(Qt6WebEngineWidgets)
+BuildRequires:	cmake(Qt6WebEngineWidgets)
 BuildRequires:	cmake(Qt6QuickWidgets)
-BuildRequires:  cmake(Qt6QuickControls2)
+BuildRequires:cmake(Qt6QuickControls2)
 BuildRequires:	cmake(Qt6Sql)
 BuildRequires:	cmake(Qt6Test)
 BuildRequires:	cmake(Qt6Designer)
@@ -52,49 +56,53 @@ BuildRequires:	cmake(Qt6Svg)
 BuildRequires:	cmake(Qt6Xml)
 BuildRequires:	cmake(Qt6Concurrent)
 BuildRequires:	cmake(Qt6Qml)
+BuildRequires:	pkgconfig(cups)
+BuildRequires:	pkgconfig(fontconfig)
+BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(libofx)
 BuildRequires:	pkgconfig(sqlite3)
 BuildRequires:	pkgconfig(sqlcipher)
-BuildRequires:	shared-mime-info
-BuildRequires:  vulkan-headers
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xext)
 Requires:	qt6-qtbase-sql-sqlite
-# uses during version checking
+# Used during version checking
 Requires:	sqlcipher
 
 %description
-Skrooge is a personal finance management tool for KDE4, with the aim of
-being highly intuitive, while providing powerful functions such as
-graphics, persistent Undo/Redo, infinite category levels, and much more...
+Skrooge is a personal finance management tool for KDE4, with the aim of being
+highly intuitive, while providing powerful functions such as graphics,
+persistent Undo/Redo, infinite category levels, and much more...
 
 %files -f %{name}.lang
-%{_bindir}/skrooge
+%{_bindir}/%{name}
 %{_bindir}/skroogeconvert
-%{_datadir}/applications/org.kde.skrooge.desktop
-%{_datadir}/mime/packages/*.xml
-%{_datadir}/metainfo/org.kde.skrooge.appdata.xml
-%{_datadir}/config.kcfg/
 %{_libdir}/qt6/plugins/kf6/ktexttemplate/grantlee_skgfilters.so
 %{_libdir}/qt6/plugins/skg_gui/
 %{_libdir}/qt6/plugins/sqldrivers/*.so
-%{_libdir}/qt6/plugins/skrooge_import/
+%{_libdir}/qt6/plugins/%{name}_import/
+%{_datadir}/%{name}/
+%{_datadir}/applications/org.kde.%{name}.desktop
+%{_datadir}/mime/packages/*.xml
+%{_datadir}/metainfo/org.kde.%{name}.appdata.xml
+%{_datadir}/config.kcfg/
 %{_datadir}/knotifications6/*
-%{_datadir}/knsrcfiles/skrooge_monthly.knsrc
-%{_datadir}/knsrcfiles/skrooge_unit.knsrc
-%{_datadir}/skrooge_import_backend/
-%{_datadir}/skrooge_source/
+%{_datadir}/knsrcfiles/%{name}_monthly.knsrc
+%{_datadir}/knsrcfiles/%{name}_unit.knsrc
+%{_datadir}/%{name}_import_backend/
+%{_datadir}/%{name}_source/
 %{_datadir}/icons/breeze-dark/
 %{_datadir}/icons/breeze/actions/
 %{_datadir}/icons/hicolor/*x*/
 %{_datadir}/icons/hicolor/scalable/
 %{_datadir}/kxmlgui5/
-%{_datadir}/skrooge/
+
 #-----------------------------------------------------------------------------
 
 %define libskgbankgui_major 2
 %define libskgbankgui %mklibname skgbankgui %{libskgbankgui_major}
 
 %package -n %{libskgbankgui}
-Summary:	%{name} library
+Summary:	Skrooge library
 Group:		System/Libraries
 
 %description -n %{libskgbankgui}
@@ -110,7 +118,7 @@ Group:		System/Libraries
 %define libskgbankmodeler %mklibname skgbankmodeler %{libskgbankmodeler_major}
 
 %package -n %{libskgbankmodeler}
-Summary:	%{name} library
+Summary:	Skrooge library
 Group:		System/Libraries
 
 %description -n %{libskgbankmodeler}
@@ -126,7 +134,7 @@ Group:		System/Libraries
 %define libskgbasegui %mklibname skgbasegui %{libskgbasegui_major}
 
 %package -n %{libskgbasegui}
-Summary:	%{name} library
+Summary:	Skrooge library
 Group:		System/Libraries
 
 %description -n %{libskgbasegui}
@@ -142,7 +150,7 @@ Group:		System/Libraries
 %define libskgbasemodeler %mklibname skgbasemodeler %{libskgbasemodeler_major}
 
 %package -n %{libskgbasemodeler}
-Summary:	%{name} library
+Summary:	Skrooge library
 Group:		System/Libraries
 
 %description -n %{libskgbasemodeler}
@@ -171,13 +179,39 @@ based on skrooge.
 
 %prep
 %autosetup -p1
-%cmake -DQT_MAJOR_VERSION=6 -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON -G Ninja
+
 
 %build
-%ninja -C build
+%cmake -DQT_MAJOR_VERSION=6 \
+				-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
+				-G Ninja
+
+%ninja
+#-C build
+
 
 %install
 %ninja_install -C build
+
+# Fix gzipped-svg-icon warnings
+pushd %{buildroot}%{_iconsdir}/hicolor/scalable/apps/
+	zcat %{name}-black.svgz > %{name}-black.svg && rm -f %{name}-black.svgz
+	zcat %{name}-initial.svgz > %{name}-initial.svg && rm -f %{name}-initial.svgz
+	zcat %{name}.svgz > %{name}.svg && rm -f %{name}.svgz
+popd
+pushd %{buildroot}%{_iconsdir}/hicolor/scalable/mimetypes/
+	zcat application-x-skg.svgz > application-x-skg.svg && rm -f application-x-skg.svgz
+	zcat application-x-skgc.svgz > application-x-skgc.svg && rm -f application-x-skgc.svgz
+popd
+pushd %{buildroot}%{_iconsdir}/hicolor/scalable/actions/
+	zcat %{name}_credit_card.svgz > %{name}_credit_card.svg && rm -f %{name}_credit_card.svgz
+	zcat %{name}_less.svgz > %{name}_less.svg && rm -f %{name}_less.svgz
+	zcat %{name}_more.svgz > %{name}_more.svg && rm -f %{name}_more.svgz
+	zcat %{name}_much_less.svgz > %{name}_much_less.svg && rm -f %{name}_much_less.svgz
+	zcat %{name}_much_more.svgz > %{name}_much_more.svg && rm -f %{name}_much_more.svgz
+	zcat %{name}_type.svgz > %{name}_type.svg && rm -f %{name}_type.svgz
+	zcat skg-chart-bubble.svgz > skg-chart-bubble.svg && rm -f skg-chart-bubble.svgz
+popd
 
 %find_lang %{name} --with-html
 
